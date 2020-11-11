@@ -1,0 +1,20 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: VirtualService
+metadata:
+  name: roundrobin
+  namespace: doumx
+spec:
+  hosts:
+  - "roundrobin.unstable.ecom.gl.rocks"
+  gateways:
+  - istio-system/https-gateway 
+  http:
+  - route:
+    - destination:
+        host: "service-doumx"
+        subset: v2
+      weight: 50
+    - destination:
+        host: "service-doumx"
+        subset: v1
+      weight: 50

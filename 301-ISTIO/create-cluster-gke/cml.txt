@@ -1,0 +1,5 @@
+gcloud container clusters create black 
+gcloud container clusters get-credentials gl-dsi-ecom-unstable-blue 
+--zone europe-west1-b --project gl-dsi-ecom-unstable-ia
+
+kubectl config view

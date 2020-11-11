@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-v2
+  namespace: doumx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+      version: v2
+  template:
+    metadata:
+      labels:
+        app: test
+        version: v2
+    spec:
+      containers:
+        - name: test
+          image: nginx
+          ports:
+            - containerPort: 80
